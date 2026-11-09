@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 import numpy as np
 from osgeo import gdal, osr
 

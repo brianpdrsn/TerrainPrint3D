@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 """Run with QGIS's Python:  /Applications/QGIS.app/Contents/MacOS/bin/python3 tests/test_mesh.py"""
 import os
 import struct

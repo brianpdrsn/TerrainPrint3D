@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 """Map tool: click the centre, drag outward, release -> a square area (in metres).
 
 Plain drag: north-up square. Hold Shift while dragging: the square turns to

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 """QGIS-side logic: sampling the DEM, reading tracks, assembling the model.
 
 Kept free of widgets so it can be run headless (see tests/test_core.py).

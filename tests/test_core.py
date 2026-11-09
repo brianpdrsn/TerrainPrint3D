@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 """Headless end-to-end test. Run with:  ./tests/run_core_test.sh"""
 import os
 import sys

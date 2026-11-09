@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 Brian Pedersen
 """Pure-numpy mesh building and file writing (no QGIS imports, so it is testable).
 
 Coordinate convention: model units are millimetres. The height grid ``z`` has
