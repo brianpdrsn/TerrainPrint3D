@@ -1,0 +1,14 @@
+[general]
+name=TerrainPrint3D
+qgisMinimumVersion=3.22
+version=0.1.0
+author=Brian Pedersen
+email=94703464+brianpdrsn@users.noreply.github.com
+description=Turn a DEM into a 3D-printable terrain model (3MF/STL), with GPX tracks.
+about=Export any part of a DEM as a watertight, print-ready terrain model. Choose the detail level with a live file-size estimate, save as compact 3MF or STL, and raise or engrave GPX tracks and other line layers into the terrain.
+tags=dem, 3d printing, stl, 3mf, gpx, terrain, relief
+category=Raster
+icon=icon.svg
+experimental=True
+deprecated=False
+server=False
