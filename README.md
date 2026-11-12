@@ -50,6 +50,8 @@ Run the tests with the Python bundled in QGIS (the paths are for macOS):
 | `TerrainPrint3D/maptool.py` | Draw-square map tool and on-map outline |
 | `TerrainPrint3D/dialog.py` | The plugin window |
 
+For a detailed walkthrough of how everything works (architecture, the export pipeline, every function, and the algorithms), see [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md).
+
 ## License
 
 GNU General Public License v2.0 or later. See [LICENSE](LICENSE).
