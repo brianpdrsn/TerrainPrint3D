@@ -363,7 +363,7 @@ class TerrainPrintDialog(QDialog):
                 h += p.track_height_mm
             size += " × ~%.1f mm tall &nbsp;(elevation %.0f–%.0f m)" % (h, relief[0], relief[1])
         lines.append(size)
-        if not p.dem_layer.extent().contains(core.make_frame(p).bbox()):
+        if not core.inside_dem(p):
             lines.append("<span style='color:#c0392b'>Part of the area is outside the DEM; "
                          "it will be flat at the lowest elevation.</span>")
         est = "%s triangles, %s%s" % (format(g.triangles, ","),

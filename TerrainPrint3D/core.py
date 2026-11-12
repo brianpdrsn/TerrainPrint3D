@@ -202,6 +202,23 @@ def make_frame(p):
     return Frame(p.extent, p.dem_layer.crs(), p.width_mm, p.rotation_deg)
 
 
+def inside_dem(p):
+    """True if the (rotated) area lies within the DEM's extent.
+
+    Allows a tolerance of 1e-6 pixel: the frame's corners are recomputed in
+    floating point, so an extent equal to the DEM's can come out a few ulps
+    larger and would otherwise fail a strict containment test.
+    """
+    layer = p.dem_layer
+    tol = 1e-6 * max(layer.rasterUnitsPerPixelX(), layer.rasterUnitsPerPixelY(), 0.0)
+    if not tol > 0:
+        tol = 1e-9 * max(layer.extent().width(), layer.extent().height())
+    bb = make_frame(p).bbox()
+    ext = layer.extent()
+    return (bb.xMinimum() >= ext.xMinimum() - tol and bb.xMaximum() <= ext.xMaximum() + tol
+            and bb.yMinimum() >= ext.yMinimum() - tol and bb.yMaximum() <= ext.yMaximum() + tol)
+
+
 def sample_dem(layer, frame, rows, cols, band=1):
     """Elevations at the model grid nodes (row 0 = top edge). NoData -> minimum.
 

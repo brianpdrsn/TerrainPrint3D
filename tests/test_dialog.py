@@ -46,6 +46,7 @@ with tempfile.TemporaryDirectory() as d:
     dlg.update_estimate()
     print(dlg.info.text().replace("<br>", "\n"))
     assert dlg.export_btn.isEnabled()
+    assert "outside the DEM" not in dlg.info.text(), "false outside-DEM warning on full extent"
     for i in range(dlg.fmt_combo.count()):
         dlg.fmt_combo.setCurrentIndex(i)
         out = os.path.join(d, "model." + dlg.fmt()); dlg._set_path(out, False)

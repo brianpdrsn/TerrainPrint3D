@@ -51,6 +51,19 @@ with tempfile.TemporaryDirectory() as d:
         assert info["elev_min"] > -1, "nodata leaked into elevations"
 
     print("relief", core.relief_range(core.ModelParams(dem_layer=dem, extent=dem.extent())))
+
+    # The DEM's own extent counts as inside (no float-rounding false alarm),
+    # while a slightly larger or shifted one does not.
+    full = core.ModelParams(dem_layer=dem, extent=dem.extent())
+    assert core.inside_dem(full), "full DEM extent reported as outside"
+    from qgis.core import QgsRectangle as _R  # noqa: E402
+    e = dem.extent()
+    for bigger in (_R(e.xMinimum() - 0.001, e.yMinimum(), e.xMaximum(), e.yMaximum()),
+                   _R(e.xMinimum(), e.yMinimum(), e.xMaximum(), e.yMaximum() + 0.001)):
+        assert not core.inside_dem(core.ModelParams(dem_layer=dem, extent=bigger))
+    full.rotation_deg = 30
+    assert not core.inside_dem(full), "rotated full extent pokes outside the DEM"
+    print("inside_dem OK")
     print("ALL OK")
 
 
